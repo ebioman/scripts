@@ -4,7 +4,7 @@ set folder= %mydate%
 mkdir %folder%
 echo "Original","NEW" > %folder%\translationTable.csv
 for /F  "delims=" %%i in ('dir /b /s *.czi') do (
-	set myRandom=!random!
+	set /a "myRandom=!random!*!random!"
 	echo "%%i" , "!myRandom!.czi" >> %folder%\translationTable.csv
 	xcopy /A /Y "%%i" %folder%\!myRandom!.czi*
 )
